@@ -1,8 +1,8 @@
 clear all
 clc
 clear all;
-header = blockEdfLoad('h03.edf');
-[header, signalHeader, signalCell] = blockEdfLoad('h03.edf'); 
+header = blockEdfLoad('h14.edf');
+[header, signalHeader, signalCell] = blockEdfLoad('h14.edf'); 
 for i=1:19 
     Saif(i,:)=signalCell{i};
 end
@@ -10,7 +10,7 @@ end
 % stop = fix (256*831.7891);
 data= Saif(:,:)';
 coun=0;
-for k=1:250:size(data,1)-250
+for k=1:1250:size(data,1)-1249
     k
     coun=coun+1;
      for  j=1:19
@@ -19,7 +19,7 @@ for k=1:250:size(data,1)-250
          DData(coun,j)=apen;
      end 
 end 
-xlswrite('h03.xlsx',[DData]);
+xlswrite('h14_ApEn.xlsx',[DData]);
 
 
 
